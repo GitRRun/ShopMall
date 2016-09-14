@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context="com.example.administrator.shopmall.MainActivity">
+    <!--导航页-->
+    <RelativeLayout
+        android:id="@+id/guide"
+        android:background="@color/colorAccent"
+        android:layout_gravity="start"
+        android:layout_width="200dp"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
+    <!--内容页-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="裙子"
+                    android:id="@+id/radioButton"
+                    android:checked="true" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="上衣"
+                    android:id="@+id/radioButton2"
+                    android:checked="false" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="外套"
+                    android:id="@+id/radioButton3"
+                    android:checked="false" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="裤子"
+                    android:id="@+id/radioButton4"
+                    android:checked="false" />
+
+                <RadioButton
+
+                    style="@style/testStyle"
+                    android:text="鞋"
+                    android:id="@+id/radioButton5"
+                    android:checked="false" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="包"
+                    android:id="@+id/radioButton6"
+                    android:checked="false" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="配饰"
+                    android:id="@+id/radioButton7"
+                    android:checked="false" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="美妆"
+                    android:id="@+id/radioButton8"
+                    android:checked="false" />
+
+                <RadioButton
+                    style="@style/testStyle"
+                    android:text="男士"
+                    android:id="@+id/radioButton9"
+                    android:checked="false" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_toRightOf="@id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/contianer"
+            >
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>
