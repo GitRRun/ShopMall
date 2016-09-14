@@ -6,6 +6,7 @@ package com.example.administrator.shopmall.bean;
 public class Dress {
     String url;
     String word;
+    String query;
 
     public String getUrl() {
         return url;
@@ -21,5 +22,13 @@ public class Dress {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 }

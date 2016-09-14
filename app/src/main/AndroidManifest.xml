@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".shopavitivty.FristActivity"></activity>
+        <activity android:name=".shopavitivty.FristActivity" />
+        <activity android:name=".shopavitivty.SecondActivity"></activity>
     </application>
 
 </manifest>

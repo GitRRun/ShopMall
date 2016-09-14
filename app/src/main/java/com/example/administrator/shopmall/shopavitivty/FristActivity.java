@@ -6,6 +6,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 
@@ -20,6 +22,7 @@ import java.util.List;
 
 public class FristActivity extends AppCompatActivity {
     GridView  listView ;
+    String path = "http://m.hichao.com/lib/interface.php?m=goodsdetail&sid=";
     List<InfoTest.DataBean.ItemsBean>  list=null;
     Handler handler=new Handler(){
         @Override
@@ -40,9 +43,20 @@ public class FristActivity extends AppCompatActivity {
         listView = (GridView) findViewById(R.id.listView);
         Intent intent =getIntent();
     final   String url =  intent.getStringExtra("pos");
-  //  final     String url="http://api-v2.mall.hichao.com/search/skus?query="+"短裙"+"&sort=all&ga=%252Fsearch%252Fskus&flag=&cat=&asc=1";
-        Log.e("===","99999"+url);
+        //三级页面监听事件
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String sid = list.get(position).getComponent().getAction().getSourceId();
+                String url = path + sid;
+                Log.e("===", "uel===" + url);
+                Intent intent1 = new Intent(FristActivity.this, SecondActivity.class);
+                intent1.putExtra("pos", url);
+                startActivity(intent1);
+
+            }
+        });
 
 
 

@@ -69,7 +69,7 @@ public class ACCFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Toast.makeText(getActivity(),.getWord(),Toast.LENGTH_SHORT).show();
 
-                String url =list.get(position).getWord();
+                String url = list.get(position).getQuery();
                 Log.e("===","3333"+url);
 
                 try {
