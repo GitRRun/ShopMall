@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -45,7 +46,7 @@ public class DressesFragment extends Fragment {
             }
         }
     };
-
+    float density;
 
     public DressesFragment() {
         // Required empty public constructor
@@ -54,8 +55,12 @@ public class DressesFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+        //获取屏幕的宽高
+        WindowManager wm = getActivity().getWindowManager();
+        int width = wm.getDefaultDisplay().getWidth();
+        int hight = wm.getDefaultDisplay().getHeight();
+        Log.e("==", "===" + width);
+        Log.e("==", "===" + hight);
     }
 
     @Override
@@ -103,6 +108,13 @@ public class DressesFragment extends Fragment {
         return view;
     }
 
+    public int dipToPx(int dip) {
+        if (density <= 0.0F) {
+            density = this.getResources().getDisplayMetrics().density;
+        }
+
+        return (int) ((float) dip * density + 0.5F);
+    }
 
 
 

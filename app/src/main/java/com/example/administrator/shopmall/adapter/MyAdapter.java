@@ -1,9 +1,13 @@
 package com.example.administrator.shopmall.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,11 +24,11 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     List<InfoTest.DataBean.ItemsBean> list;
     Context context;
-
     public MyAdapter(List<InfoTest.DataBean.ItemsBean> list, Context context) {
         this.list = list;
         this.context = context;
     }
+
 
     @Override
     public int getCount() {
@@ -60,8 +64,11 @@ public class MyAdapter extends BaseAdapter {
         viewHolder.description.setText(list.get(position).getComponent().getDescription());
         viewHolder.price.setText("¥"+list.get(position).getComponent().getPrice());
         viewHolder.sales.setText("销量"+list.get(position).getComponent().getSales());
+        //设置下划线
+        viewHolder.origin_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         viewHolder.origin_price.setText("原¥"+list.get(position).getComponent().getOrigin_price());
-        Picasso.with(context).load(list.get(position).getComponent().getPicUrl()).into(viewHolder.imageView);
+        Picasso.with(context).load(list.get(position).getComponent().getPicUrl()).resize(300, 400).centerCrop().placeholder(R.mipmap.ic_launcher).into(viewHolder.imageView);
+
         return convertView;
     }
 

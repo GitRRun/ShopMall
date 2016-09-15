@@ -3,12 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#555555"
     tools:context="com.example.administrator.shopmall.shopavitivty.FristActivity">
 
     <GridView
-        android:numColumns="2"
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
         />
 </RelativeLayout>
