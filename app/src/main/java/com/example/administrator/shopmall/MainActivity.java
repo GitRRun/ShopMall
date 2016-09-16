@@ -1,6 +1,4 @@
 package com.example.administrator.shopmall;
-
-import android.app.Dialog;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -10,15 +8,17 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Display;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AbsListView;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.example.administrator.shopmall.fragment.ACCFragment;
 import com.example.administrator.shopmall.fragment.BeautyFragment;
@@ -30,7 +30,7 @@ import com.example.administrator.shopmall.fragment.MANFragment;
 import com.example.administrator.shopmall.fragment.ShoesFragment;
 import com.example.administrator.shopmall.fragment.TrousersFragment;
 import com.example.administrator.shopmall.fragment.TshirtFragment;
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
     RadioGroup radioGroup;
     FragmentManager fragmentManager;
     ACCFragment accFragment;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     TshirtFragment tshirtFragment;
     ActionBar actionBar;
     DrawerLayout drawerLayout;
-   // AlertDialog alertDialog;
+    View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             case R.id.share:
                 AlertDialog alertDialog =  show();
                 alertDialog.show();
+
                 break;
 
 
@@ -101,7 +102,45 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     //创造对话框
     private AlertDialog  show() {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-       View view = LayoutInflater.from(this).inflate(R.layout.dialog_item,null);
+        view = LayoutInflater.from(this).inflate(R.layout.dialog_item,null);
+        //给控件设置监听事件
+        RadioGroup   radioGroup = (RadioGroup) view.findViewById(R.id.rg);
+        RadioGroup   radioGroup1 = (RadioGroup) view.findViewById(R.id.rg1);
+       final RadioButton radioButton1 = (RadioButton) view.findViewById(R.id.rb1);
+        final RadioButton radioButton2 = (RadioButton) view.findViewById(R.id.rb2);
+        final RadioButton radioButton3 = (RadioButton) view.findViewById(R.id.rb3);
+        final RadioButton radioButton4 = (RadioButton) view.findViewById(R.id.rb4);
+        final RadioButton radioButton5 = (RadioButton) view.findViewById(R.id.rb5);
+        final RadioButton radioButton6 = (RadioButton) view.findViewById(R.id.rb6);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId==radioButton1.getId()){
+                    Log.e("===","00000");
+                }
+                if (checkedId==radioButton2.getId()){
+                    Log.e("===","11111");
+                }
+                if (checkedId==radioButton3.getId()){
+                    Log.e("===","2222");
+                }
+                if (checkedId==radioButton4.getId()){
+                    Log.e("===","3333");
+                }
+            }
+        });
+
+        radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId==radioButton5.getId()){
+                    Log.e("===","55555");
+                }
+                if (checkedId==radioButton6.getId()){
+                    Log.e("===","66666");
+                }
+            }
+        });
         builder.setView(view);
         AlertDialog alertDialog=builder.create();
         DisplayMetrics displayMetrics=new DisplayMetrics();
@@ -195,6 +234,14 @@ return alertDialog;
 
         }
         fragmentTransaction.commit();
+    }
+
+    //初始化按钮
+    public void initRadioGounp(){
+      RadioButton radioButton1= (RadioButton) view.findViewById(R.id.rb1);
+        RadioButton radioButton2= (RadioButton) view.findViewById(R.id.rb2);
+        RadioButton radioButton3= (RadioButton) view.findViewById(R.id.rb3);
+        RadioButton radioButton4= (RadioButton) view.findViewById(R.id.rb4);
     }
 
 
