@@ -44,7 +44,6 @@ public class BeautyFragment extends Fragment {
         }
     };
 
-
     public BeautyFragment() {
         // Required empty public constructor
     }

@@ -9,8 +9,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     TshirtFragment tshirtFragment;
     ActionBar actionBar;
     DrawerLayout drawerLayout;
-    Dialog dialog;
+   // AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +89,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                     drawerLayout.openDrawer(Gravity.LEFT);
                 }
             case R.id.share:
-                show();
+                AlertDialog alertDialog =  show();
+                alertDialog.show();
                 break;
 
 
@@ -96,22 +99,31 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     }
 
     //创造对话框
-    private void show() {
-        dialog = new Dialog(this);
-        View view = getLayoutInflater().inflate(R.layout.dialog_item, null);
-        Window dialogWindow = dialog.getWindow();
-        dialogWindow.setGravity(Gravity.BOTTOM);
-       /* AbsListView.LayoutParams parms=new AbsListView.LayoutParams(150,100);
-        view.setLayoutParams(parms);*/
-        dialog.setContentView(R.layout.dialog_item);
-        WindowManager m = getWindowManager();
-        Display d = m.getDefaultDisplay(); // 获取屏幕宽、高用
-        WindowManager.LayoutParams p = dialogWindow.getAttributes(); // 获取对话框当前的参数值
-        p.height = (int) (d.getHeight() * 0.3); // 高度设置为屏幕的0.6
-        p.width = (int) (d.getWidth()); // 宽度设置为屏幕的0.65
-        dialogWindow.setAttributes(p);
-        dialog.show();
+    private AlertDialog  show() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+       View view = LayoutInflater.from(this).inflate(R.layout.dialog_item,null);
+        builder.setView(view);
+        AlertDialog alertDialog=builder.create();
+        DisplayMetrics displayMetrics=new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        //设置对话框的动画
+        Window window = alertDialog.getWindow();
+        //设置对话框的背景
+        window.setBackgroundDrawableResource(android.R.color.white);
+        //设置对话框的窗口与屏幕之间的缝隙
+        window.getDecorView().setPadding(0,0,0,0);
+        //给窗口设置动画
+        window.setWindowAnimations(R.style.dialogAnimation);
+        //获取window布局的默认参数
+        WindowManager.LayoutParams  layoutParams=window.getAttributes();
+        //修改默认布局
+        layoutParams.gravity = Gravity.BOTTOM;
+        layoutParams.width  =displayMetrics.widthPixels;
+       layoutParams.height=displayMetrics.heightPixels/4;
 
+        window.setAttributes(layoutParams);
+
+return alertDialog;
 
     }
 
