@@ -1,26 +1,104 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#555555"
     tools:context="com.example.administrator.shopmall.fragment.GuideFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"
+            android:src="@mipmap/ic_launcher" />
 
+        <Button
 
-    <ImageView
-        android:background="@mipmap/ic_launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_marginTop="66dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/button" />
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="登陆" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="未登录"
-        android:id="@+id/button"
-        android:layout_below="@+id/imageView"
-         />
-</RelativeLayout>
+        <TextView
+            android:clickable="true"
+            android:id="@+id/shophome"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="100dp"
+            android:drawableLeft="@android:drawable/ic_media_play"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="首页" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"></View>
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/store"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@android:drawable/ic_menu_edit"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="收藏" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"></View>
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/shopcar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button2"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@android:drawable/ic_menu_add"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="购物车" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"></View>
+
+        <TextView
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button3"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@android:drawable/ic_menu_delete"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="退出登录" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"></View>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#555555"
+    tools:context="com.example.administrator.shopmall.shopavitivty.ShopActivity">
+
+
+
+    <ListView
+        android:layout_above="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout">
+        <CheckBox
+            android:textColor="#ffffff"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="全选"
+            android:id="@+id/checkBox"
+            />
+
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="合计:0元"
+            android:id="@+id/textView2"
+           />
+        <Button
+            android:textColor="#ffffff"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="结算"
+            android:id="@+id/button"
+           />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

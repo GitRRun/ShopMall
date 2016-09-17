@@ -6,15 +6,7 @@
     android:layout_height="match_parent"
     android:background="#555555"
     tools:context="com.example.administrator.shopmall.MainActivity">
-    <!--导航页-->
-    <RelativeLayout
-        android:id="@+id/guide"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/colorAccent">
 
-    </RelativeLayout>
     <!--内容页-->
     <RelativeLayout
 
@@ -39,6 +31,10 @@
                     style="@style/testStyle"
                     android:checked="true"
                     android:text="裙子" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton2"
@@ -46,6 +42,10 @@
                     android:layout_marginTop="1dp"
                     android:checked="false"
                     android:text="上衣" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton3"
@@ -53,12 +53,20 @@
                     android:layout_marginTop="1dp"
                     android:checked="false"
                     android:text="外套" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton4"
                     style="@style/testStyle"
                     android:checked="false"
                     android:text="裤子" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
 
@@ -66,30 +74,50 @@
                     style="@style/testStyle"
                     android:checked="false"
                     android:text="鞋" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton6"
                     style="@style/testStyle"
                     android:checked="false"
                     android:text="包" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton7"
                     style="@style/testStyle"
                     android:checked="false"
                     android:text="配饰" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton8"
                     style="@style/testStyle"
                     android:checked="false"
                     android:text="美妆" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
 
                 <RadioButton
                     android:id="@+id/radioButton9"
                     style="@style/testStyle"
                     android:checked="false"
                     android:text="男士" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ffffff"></View>
             </RadioGroup>
         </LinearLayout>
 
@@ -103,6 +131,16 @@
 
         </RelativeLayout>
 
+
+    </RelativeLayout>
+
+    <!--导航页-->
+    <RelativeLayout
+        android:id="@+id/guide"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorAccent">
 
     </RelativeLayout>
 

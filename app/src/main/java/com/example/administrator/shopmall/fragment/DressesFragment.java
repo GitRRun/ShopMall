@@ -14,8 +14,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
-
 import com.example.administrator.shopmall.parse.Parse;
 import com.example.administrator.shopmall.R;
 import com.example.administrator.shopmall.bean.Dress;
@@ -115,7 +113,6 @@ public class DressesFragment extends Fragment {
 
         return (int) ((float) dip * density + 0.5F);
     }
-
 
 
 }

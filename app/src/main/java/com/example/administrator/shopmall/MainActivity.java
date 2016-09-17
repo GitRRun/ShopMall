@@ -1,4 +1,5 @@
 package com.example.administrator.shopmall;
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -14,12 +15,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+import com.example.administrator.shopmall.callback.CallBack;
 import com.example.administrator.shopmall.fragment.ACCFragment;
 import com.example.administrator.shopmall.fragment.BeautyFragment;
 import com.example.administrator.shopmall.fragment.CoatFragment;
@@ -30,7 +31,11 @@ import com.example.administrator.shopmall.fragment.MANFragment;
 import com.example.administrator.shopmall.fragment.ShoesFragment;
 import com.example.administrator.shopmall.fragment.TrousersFragment;
 import com.example.administrator.shopmall.fragment.TshirtFragment;
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
+import com.example.administrator.shopmall.shopavitivty.LoginActivity;
+import com.example.administrator.shopmall.shopavitivty.ShopActivity;
+import com.example.administrator.shopmall.shopavitivty.StoreActivity;
+
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener,CallBack{
     RadioGroup radioGroup;
     FragmentManager fragmentManager;
     ACCFragment accFragment;
@@ -116,16 +121,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId==radioButton1.getId()){
-                    Log.e("===","00000");
+                    Toast.makeText(MainActivity.this,"未安装QQ客户端",Toast.LENGTH_SHORT).show();
                 }
                 if (checkedId==radioButton2.getId()){
-                    Log.e("===","11111");
+                    Toast.makeText(MainActivity.this,"未安装QQ空间客户端",Toast.LENGTH_SHORT).show();
                 }
                 if (checkedId==radioButton3.getId()){
-                    Log.e("===","2222");
+                    Toast.makeText(MainActivity.this,"未安装新浪客户端",Toast.LENGTH_SHORT).show();
                 }
                 if (checkedId==radioButton4.getId()){
-                    Log.e("===","3333");
+                    Toast.makeText(MainActivity.this,"未安装腾讯微博客户端",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -134,10 +139,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId==radioButton5.getId()){
-                    Log.e("===","55555");
+                    Toast.makeText(MainActivity.this,"未安装微信客户端",Toast.LENGTH_SHORT).show();
                 }
                 if (checkedId==radioButton6.getId()){
-                    Log.e("===","66666");
+                    Toast.makeText(MainActivity.this,"未安装微信客户端",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -236,14 +241,32 @@ return alertDialog;
         fragmentTransaction.commit();
     }
 
-    //初始化按钮
-    public void initRadioGounp(){
-      RadioButton radioButton1= (RadioButton) view.findViewById(R.id.rb1);
-        RadioButton radioButton2= (RadioButton) view.findViewById(R.id.rb2);
-        RadioButton radioButton3= (RadioButton) view.findViewById(R.id.rb3);
-        RadioButton radioButton4= (RadioButton) view.findViewById(R.id.rb4);
+
+    @Override
+    public void setFragmentChange(int pos) {
+        if (pos==0){
+            Intent intent=new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        if (pos==1){
+            Intent intent=new Intent(this, StoreActivity.class);
+            startActivity(intent);
+        }
+
+        if (pos==2){
+            Intent intent=new Intent(this, ShopActivity.class);
+            startActivity(intent);
+        }
+        if (pos==3){
+            Intent intent=new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
+    @Override
+    public void setFragmentClose() {
+        drawerLayout.closeDrawer(Gravity.LEFT);
+    }
 
 
 }
